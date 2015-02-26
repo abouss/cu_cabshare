@@ -21,13 +21,13 @@ CREATE TABLE users(
     name VARCHAR(20),
     email VARCHAR(50),
     password VARCHAR(8),
-PRIMARY KEY (uni));
+    PRIMARY KEY (uni));
 
 /* Create the messages table */
 CREATE TABLE messages(
-m_id INT NOT NULL,
+    m_id INT NOT NULL,
    	m_datetime datetime,
-    	m_body text,
+    m_body text,
 	PRIMARY KEY (m_id)); 
     
 /* Create the user messages table */
@@ -35,23 +35,23 @@ CREATE TABLE u_msgs(
  	u_id VARCHAR(6),
 	m_id INT,
 	PRIMARY KEY (uni, m_id)),
-FOREIGN KEY (uni) REFERENCES users(users),
-    	FOREIGN KEY (m_id) REFERENCES providers(messages); 
+    FOREIGN KEY (uni) REFERENCES users(users),
+    FOREIGN KEY (m_id) REFERENCES providers(messages); 
     
 /* Create the campus locations table */
 CREATE TABLE campus_loc(
 	c_id INT NOT NULL,
 	school VARCHAR(100),
 	dorm VARCHAR(100),
-    	PRIMARY KEY (c_id)); 
+    PRIMARY KEY (c_id)); 
     
  /* Create the user locations table */
 CREATE TABLE u_loc(
-c_id INT NOT NULL,
-uni VARCHAR(6) NOT NULL,
-    	PRIMARY KEY (c_id, uni))
-FOREIGN KEY (uni) REFERENCES users(users),
-    	FOREIGN KEY (c_id) REFERENCES providers(campus_loc); 
+    c_id INT NOT NULL,
+    uni VARCHAR(6) NOT NULL,
+    PRIMARY KEY (c_id, uni))
+    FOREIGN KEY (uni) REFERENCES users(users),
+    FOREIGN KEY (c_id) REFERENCES providers(campus_loc); 
  
     
  /* Create the airlines table */
