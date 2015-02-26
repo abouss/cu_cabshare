@@ -33,10 +33,7 @@ CREATE TABLE messages (
 CREATE TABLE u_msgs (
 	u_id VARCHAR(6),
 	m_id INT,
-	PRIMARY KEY (
-		uni,
-		m_id
-		)
+	PRIMARY KEY (uni,m_id)
 	),
 	FOREIGN KEY (uni) REFERENCES users (users),
 	FOREIGN KEY (m_id) REFERENCES providers (messages);
@@ -53,10 +50,7 @@ CREATE TABLE campus_loc (
 CREATE TABLE u_loc (
 	c_id INT NOT NULL,
 	uni VARCHAR(6) NOT NULL,
-	PRIMARY KEY (
-		c_id,
-		uni
-		)
+	PRIMARY KEY (c_id,uni)
 	) FOREIGN KEY (uni) REFERENCES users (users),
 	FOREIGN KEY (c_id) REFERENCES providers (campus_loc);
 
@@ -73,10 +67,7 @@ CREATE TABLE flights (
 	a_id INT NOT NULL,
 	line_id INT NOT NULL,
 	FOREIGN KEY (a_id) REFERENCES airports(a_id),
-	PRIMARY KEY (
-		a_id,
-		line_id
-		)
+	PRIMARY KEY (a_id,line_id)
 	);
 
 /* Create the airports table */
@@ -95,11 +86,7 @@ CREATE TABLE prices (
 	c_id INT NOT NULL,
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
 	FOREIGN KEY (c_id) REFERENCES campus_loc(c_id),
-	PRIMARY KEY (
-		t_id,
-		c_id,
-		price
-		)
+	PRIMARY KEY (t_id, c_id, price)
 	);
 
 /* Create the rides table */
@@ -112,13 +99,7 @@ CREATE TABLE rides (
 	FOREIGN KEY (uni) REFERENCES users(uni),
 	FOREIGN KEY (c_id) REFERENCES campus_loc(c_id),
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
-	PRIMARY KEY (
-		uni,
-		c_id,
-		a_id,
-		line_id,
-		t_id
-		)
+	PRIMARY KEY (uni, c_id, a_id, line_id, t_id)
 	);
 
 /* Create the taxis table */
@@ -137,12 +118,6 @@ CREATE TABLE reviews (
 	r_body TEXT,
 	r_rating INT,
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
-	PRIMARY KEY (
-		r_id,
-		t_id
-		),
-	CHECK (
-		rating <= 10
-		AND rating >= 0
-		)
+	PRIMARY KEY (r_id, t_id),
+	CHECK (rating <= 10 AND rating >= 0)
 	);
