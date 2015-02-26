@@ -33,8 +33,7 @@ CREATE TABLE messages (
 CREATE TABLE u_msgs (
 	u_id VARCHAR(6),
 	m_id INT,
-	PRIMARY KEY (uni,m_id)
-	),
+	PRIMARY KEY (uni,m_id),
 	FOREIGN KEY (uni) REFERENCES users (users),
 	FOREIGN KEY (m_id) REFERENCES providers (messages);
 
@@ -50,8 +49,8 @@ CREATE TABLE campus_loc (
 CREATE TABLE u_loc (
 	c_id INT NOT NULL,
 	uni VARCHAR(6) NOT NULL,
-	PRIMARY KEY (c_id,uni)
-	) FOREIGN KEY (uni) REFERENCES users (users),
+	PRIMARY KEY (c_id,uni),
+	FOREIGN KEY (uni) REFERENCES users (users),
 	FOREIGN KEY (c_id) REFERENCES providers (campus_loc);
 
 /* Create the airlines table */
@@ -86,7 +85,8 @@ CREATE TABLE prices (
 	c_id INT NOT NULL,
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
 	FOREIGN KEY (c_id) REFERENCES campus_loc(c_id),
-	PRIMARY KEY (t_id, c_id, price)
+	PRIMARY KEY (t_id, c_id, price),
+	CHECK (price != 0)
 	);
 
 /* Create the rides table */
