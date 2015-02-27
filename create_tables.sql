@@ -83,9 +83,11 @@ CREATE TABLE prices (
 	price INT NOT NULL,
 	t_id INT NOT NULL,
 	c_id INT NOT NULL,
+	p_datetime DATETIME,
+	a_id INT NOT NULL,
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
 	FOREIGN KEY (c_id) REFERENCES campus_loc(c_id),
-	PRIMARY KEY (t_id, c_id, price),
+	PRIMARY KEY (t_id, c_id, price, a_id, p_datetime),
 	CHECK (price != 0)
 	);
 
@@ -96,10 +98,12 @@ CREATE TABLE rides (
 	a_id INT NOT NULL,
 	line_id INT NOT NULL,
 	t_id INT NOT NULL,
+	p_datetime DATETIME,
 	FOREIGN KEY (uni) REFERENCES users(uni),
 	FOREIGN KEY (c_id) REFERENCES campus_loc(c_id),
 	FOREIGN KEY (t_id) REFERENCES taxis(t_id),
-	PRIMARY KEY (uni, c_id, a_id, line_id, t_id)
+	FOREIGN KEY (p_datetime) REFERENCES prices(p_datetime),
+	PRIMARY KEY (uni, c_id, a_id, line_id, t_id, p_datetime)
 	);
 
 /* Create the taxis table */
