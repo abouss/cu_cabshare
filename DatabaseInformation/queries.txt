@@ -1,0 +1,24 @@
+//Anfal Boussayoud & Omar Abboud
+//Interesting queries
+
+Find the average rating for Uber rides 
+
+SELECT AVG(r_rating)
+FROM reviews r
+WHERE r.t_id=(SELECT t.t_id FROM taxis t WHERE t.t_name="Uber") 
+
+
+Find all rides that leave 5pm Sunday 5/2, from Carman to LaGuardia, terminal 1
+
+SELECT *
+FROM rides
+WHERE p_datetime="2015-02-03 09:30:00" 
+AND c_id =(SELECT c_id FROM campus_loc WHERE dorm="Carman") 
+AND a_id=(SELECT a_id FROM airports WHERE airport_name="LaGuardia" AND terminal="A")
+
+
+Find the lowest price a trip from Carmen to Laguardia terminal A is 
+
+SELECT MIN(price)
+FROM prices p
+WHERE p.c_id=(SELECT c.c_id FROM campus_loc c WHERE c.dorm="Carman") AND p.a_id=(SELECT a.a_id FROM airports a WHERE a.airport_name="LaGuardia" AND a.terminal="A") 
