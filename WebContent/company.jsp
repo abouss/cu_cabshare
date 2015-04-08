@@ -10,12 +10,67 @@
 	<%@ page import="javax.sql.*"%>
 	<%@ page import="javax.servlet.*,java.text.*"%>
 	<%@include file="init.jsp"%>
+	  
+    <%
+        PreparedStatement pstmt = null;
+        StringBuilder sb;
+        String sql;
+        ResultSet rset = null;
+        ResultSet revset = null;
+        ResultSet aliasSet = null;
+        int numAlias = 0;
+        
+        String t_id = request.getParameter("t_id");
+       
+
+
+        
+        int numResults = 0;
+        try {
+        	sql = "SELECT * FROM taxis where t_id='" + t_id + "'";
+        	pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+        	
+            
+        } catch (SQLException e) {
+            error_msg = e.getMessage();
+            System.out.println(error_msg);
+            if( conn != null ) {
+                conn.close();
+            }
+        } finally {
+            
+        }
+    %>
  	<%@include file="header.jsp" %>
 </head>
 <body>
-	<div id="calendar">
-		Taxi company goes here
-	</div>
+	
+	<H2>Tables</H2>
+	<TABLE>
+		<tr>
+			<td>TABLE</td>
+		</tr>
+		<tr>
+			<td><b>----------</b></td>
+		</tr>
+		<%
+			if(rset != null) {
+				while(rset.next()) {
+				out.print("<tr>");
+				out.print("<td>" + rset.getString(1) + "</td>");
+				out.print("</tr>");
+				}
+				} else {
+				out.print(error_msg);
+				}
+				if( conn != null ) {
+				conn.close();
+				}
+		%>
+	</TABLE>
+	
+	
 
 <%@include file="footer.jsp" %>
 </body>

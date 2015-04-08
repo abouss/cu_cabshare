@@ -1,9 +1,9 @@
 <div id="footer"
-	style="text-align: center; width: 100%; height: 50px; margin-top: 1000px; padding-top: 2px; background-color: #dbdbdb;">
+	style="text-align: center; width: 100%; height: 50px; margin-top: 1000px; padding-top: 2px; background-color: #FFFFFF;">
 	<div style="float: left;">
 		
-		<div class="smallBold">~A cab for every student, and four
-			students to every cab.</div>
+		<div style="padding: 10px; margin-left:65em; background-color:#192f5f;" class="smallBold"><h3 style="color:white">~A cab for every student, and four
+			students to every cab.</h3></div>
 		
 
 	</div>
