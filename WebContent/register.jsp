@@ -42,7 +42,8 @@
      </form>
      
 </div>
- <div style="float:right; width:400px; height:100%;">
+
+<div style="float:right; width:400px; height:100%;">
     <form action="reg1.jsp" method="post">
      <div style="margin-top:20px;">
 
@@ -75,7 +76,7 @@
          </div>
          
          <div style="padding-top:20px; height:100px; width:400px;">
-         Your identity will never be shared or published. Usernames are randomly generated and emails are collected for password recovery purposes only.
+         
          </div>
      </div>
      <br>
