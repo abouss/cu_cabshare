@@ -35,6 +35,23 @@ h2 {
     color: #323847;
     margin-top: 2px;
 }
+#calendar{
+	position:absolute;
+	color:#323847;
+	top: 400px;
+	left: 200px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+
+
 .dblogin:link {
     color: #ffffff;
     text-decoration: none;

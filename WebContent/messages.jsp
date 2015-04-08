@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	 <link rel="stylesheet" type="text/css" href="css/main.css">
-	<title>CU Cabshare</title>
+	<title>User Messages</title>
 	<%@ page import="java.sql.*"%>
 	<%@ page import="javax.sql.*"%>
 	<%@ page import="javax.servlet.*,java.text.*"%>
@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id="calendar">
-		Calendar goes here
+		list of user messages goes here
 	</div>
 
 <%@include file="footer.jsp" %>

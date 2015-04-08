@@ -9,7 +9,7 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
-<%-- <%@include file="header.jsp"%> --%>
+<%@include file="header.jsp"%>
 <div class="mainDiv">
 
 <br>
