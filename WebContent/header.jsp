@@ -7,17 +7,19 @@
    <div style="clear:both;"></div>
    <div style="width:100%; margin-top: 5px; height: 30px; background-color:#192f5f;">
       <div style="padding-top:5px; width: 800px; height: 30px; margin: 0px auto;">
-         <div class="navlinks" style="float:right; width:200px;">
+         <div class="navlinks" style="float:right; width:300px;">
             <%
-               String uid = String.valueOf(session.getAttribute("u_id"));
-               if (uid.equals("null")) {
+               String uni = String.valueOf(session.getAttribute("name"));
+               if (uni.equals("null")) {
                	out.print("<a href=\"register.jsp\">Sign Up</a>");
                } else {
-               	out.print("Cab your heart out.  <a href=\"logout.jsp\">Logout?</a>");
+               	out.print("Cab your heart out, " + uni +". <a href=\"logout.jsp\">Logout?</a>");
                    
                }  
                %>
          </div>
+         
+         
       </div>
    </div>
 </div>

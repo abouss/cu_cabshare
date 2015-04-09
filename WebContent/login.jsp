@@ -20,6 +20,8 @@
          String password1 = request.getParameter("password1");
          String password2 = request.getParameter("password2");
          String usr = request.getParameter("user");
+         String uni = request.getParameter("uni");
+         String name = request.getParameter("name");
          
          getServletContext().getRequestDispatcher("/register.jsp").include(
          		request, response);
@@ -41,7 +43,7 @@
          			rs = ps.executeQuery();
          
          			if (rs != null && rs.next()) {
-         				session.setAttribute("uni", rs.getString("uni"));
+         				session.setAttribute("name", rs.getString("name"));
          				response.sendRedirect("index.jsp");
          			} else {
          				out.print("<script type='text/javascript'>alert('Invalid Login')</script>");
@@ -51,20 +53,20 @@
          			//passwords match
          			if (password1.equals(password2)) {
          				//get random username --TO DO: RANDOMLY GENERATE USERNAMES
-         				String username = "Calliope";
+         				String username = name;
          
-         				sql = "insert into users (email, username, password)";
-         				sql += "values ('" + email + "','" + username
-         						+ "','" + password1 + "')";
+         				sql = "insert into users (uni, name, email, password)";
+         				sql += "values ('" + uni + "','" + username
+         						+ "','" + email + "','" + password1 + "')";
          				ps = conn.prepareStatement(sql);
          				int rows = ps.executeUpdate();
          
          				//set the u_id in the setAttributes space
-         				int u_id = 0;
+         				String u_id = "0";
          
          				try {
          					//select the u_id that was just inserted into the users table
-         					String sql2 = "SELECT u_id from users where email='"
+         					String sql2 = "SELECT name from users where email='"
          							+ email + "'";
          					ps = null;
          					ps = conn.prepareStatement(sql2);
@@ -72,13 +74,13 @@
          					ResultSet set = ps.executeQuery();
          
          					while (set.next()) {
-         						u_id = set.getInt("u_id");
+         						u_id = set.getString("name");
          					}
          
-         					if (u_id != 0) {
-         						session.setAttribute("u_id", u_id);
+         					if (u_id != "0") {
+         						session.setAttribute("name", u_id);
          					} else {
-         						System.out.println("u_id of 0... error");
+         						System.out.println("uni of 0... error");
          					}
          
          				} catch (SQLException e) {

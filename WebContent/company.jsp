@@ -55,7 +55,7 @@
 <body>
 
 
-	<div class="container">
+	<div class="mainDiv">
 		<div class="row" style="margin-top: 130px">
 			<div class="col-md-4">
 				<img src="img/logo.png" alt="..." class="img-rounded">

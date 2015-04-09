@@ -5,6 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	 <link rel="stylesheet" type="text/css" href="css/main.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	 
 	<title>Add a Ride</title>
 	<%@ page import="java.sql.*"%>
 	<%@ page import="javax.sql.*"%>
@@ -13,9 +15,7 @@
  	<%@include file="header.jsp" %>
 </head>
 <body>
-	<div id="calendar">
-		adding a ride functionality goes here
-	</div>
+	<div class="mainDiv">Here is the information about the ride you wish to add:</div>
 
 <%@include file="footer.jsp" %>
 </body>
