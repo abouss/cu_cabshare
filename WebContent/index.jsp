@@ -10,9 +10,12 @@
 <%@ page import="javax.sql.*"%>
 <%@ page import="javax.servlet.*,java.text.*"%>
 <%@include file="init.jsp"%>
+<%@include file="header.jsp" %>
+
 <body>
 
 	<%
+		/*test*/
 		String email = request.getParameter("email");
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
