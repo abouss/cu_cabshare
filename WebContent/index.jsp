@@ -5,6 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	 <link rel="stylesheet" type="text/css" href="css/main.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	 
 	<title>CU Cabshare</title>
 	<%@ page import="java.sql.*"%>
 	<%@ page import="javax.sql.*"%>
