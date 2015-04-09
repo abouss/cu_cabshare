@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 <title>Registration</title>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <%@include file="header.jsp"%>
@@ -15,7 +18,7 @@
 
 		<br>
 		<div style="float: left; width: 400px; height: 100%;">
-			<form action="reg1.jsp" method="post">
+			<form action="login.jsp" method="post">
 				<div style="margin-top: 20px;">
 
 					<div
@@ -45,9 +48,22 @@
 		</div>
 
 		<div style="float: right; width: 400px; height: 100%;">
-			<form action="reg1.jsp" method="post">
+			<form action="login.jsp" method="post">
 				<div style="margin-top: 20px;">
-
+					<div
+						style="width: 160px; height: 30px; padding-right: 10px; float: left; text-align: right;">
+						Uni:</div>
+					<div style="width: 180px; height: 30px; float: left;">
+						<input style="width: 150px;" type="text" name="uni" />
+					</div>
+					
+					<div
+						style="width: 160px; height: 30px; padding-right: 10px; float: left; text-align: right;">
+						Name:</div>
+					<div style="width: 180px; height: 30px; float: left;">
+						<input style="width: 150px;" type="text" name="name" />
+					</div>
+					
 					<div
 						style="width: 160px; height: 30px; padding-right: 10px; float: left; text-align: right;">
 						Email:</div>
@@ -88,5 +104,6 @@
 			</form>
 		</div>
 	</div>
+	<%@include file="footer.jsp" %>
 </body>
 </html>
