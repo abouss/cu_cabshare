@@ -5,6 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	 <link rel="stylesheet" type="text/css" href="css/main.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	 
 	<title>Taxi Company</title>
 	<%@ page import="java.sql.*"%>
 	<%@ page import="javax.sql.*"%>
@@ -22,8 +24,6 @@
         
         String t_id = request.getParameter("t_id");
        
-
-
         
         int numResults = 0;
         try {
@@ -46,7 +46,11 @@
 </head>
 <body>
 	
-	<H2>Tables</H2>
+	
+	<div class="container"><div class="row" style="margin-top: 130px">
+  		<div class="col-md-4">PICTURE</div>
+  		
+  		<div class="col-md-8"><div> <H2>Tables</H2>
 	<TABLE>
 		<tr>
 			<td>TABLE</td>
@@ -69,7 +73,8 @@
 				}
 		%>
 	</TABLE>
-	
+	</div> </div>
+	</div></div>
 	
 
 <%@include file="footer.jsp" %>
