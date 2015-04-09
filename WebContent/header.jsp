@@ -13,8 +13,7 @@
                if (uni.equals("null")) {
                	out.print("<a href=\"register.jsp\">Sign Up</a>");
                } else {
-               	out.print("Cab your heart out, " + uni +". <a href=\"logout.jsp\">Logout?</a>");
-                   
+                out.print("Cab your heart out, <a href=\'profile.jsp\'>" + uni + ".</a> <a href=\"logout.jsp\">Or logout?</a>");
                }  
                %>
          </div>

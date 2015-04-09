@@ -44,6 +44,7 @@
          
          			if (rs != null && rs.next()) {
          				session.setAttribute("name", rs.getString("name"));
+         				session.setAttribute("uni", rs.getString("uni"));
          				response.sendRedirect("index.jsp");
          			} else {
          				out.print("<script type='text/javascript'>alert('Invalid Login')</script>");
@@ -66,7 +67,7 @@
          
          				try {
          					//select the u_id that was just inserted into the users table
-         					String sql2 = "SELECT name from users where email='"
+         					String sql2 = "SELECT * from users where email='"
          							+ email + "'";
          					ps = null;
          					ps = conn.prepareStatement(sql2);
@@ -79,6 +80,8 @@
          
          					if (u_id != "0") {
          						session.setAttribute("name", u_id);
+                 				session.setAttribute("uni", set.getString("uni"));
+
          					} else {
          						System.out.println("uni of 0... error");
          					}
