@@ -77,9 +77,9 @@
 			<%
 			if(revset != null) {
 				while(revset.next()) {			
-					out.print("<p>" + revset.getString("m_datetime") + "</p>");
-					out.print("<p>" + revset.getString("m_body") + "</p>");
-					out.print("<p>" + revset.getString("uni2") + "</p>");
+					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
+					out.print("<p>" + "Message: " + revset.getString("m_body") + "</p>");
+					out.print("<p>" + "From: " + revset.getString("uni2") + "</p>");
 
 				}
 				
