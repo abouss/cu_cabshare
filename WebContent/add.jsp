@@ -29,6 +29,7 @@
 	ResultSet rset = null;
 	ResultSet rset2 = null;
 	ResultSet rset3 = null;
+	ResultSet rset4 = null;
 
 	String loc1 = request.getParameter("loc1");
 	String loc2 = request.getParameter("loc2");
@@ -63,9 +64,13 @@
 			
 		}
 		
-		sql = "SELECT * FROM taxis where t_id='" + loc2 + "'";
+		sql = "SELECT * FROM taxis where t_id='" + t_id + "'";
 		pstmt = conn.prepareStatement(sql);
 		rset3 = pstmt.executeQuery();
+		
+		sql = "SELECT * FROM airlines";
+		pstmt = conn.prepareStatement(sql);
+		rset4 = pstmt.executeQuery();
 
 
 	} catch (SQLException e) {
@@ -110,7 +115,7 @@
 	
 	if (rset3 != null) {
 		while (rset3.next()) {
-			out.print("<p>To: ");
+			out.print("<p>Using: ");
 			out.print(rset3.getString(1) + " ");
 			out.print(rset3.getString(2) + " ");
 			out.print(rset3.getString(3) + "</p>");
@@ -119,6 +124,26 @@
 	} else {
 		out.print(error_msg);
 	}
+	
+	if (rset4 != null) {
+		out.print("<form name='advanced_search' action='add.jsp' method='get'>");
+		
+		while (rset4.next()) {
+			out.print("<p>Your airlines are: ");
+			out.print(rset4.getString(1) + " ");
+			out.print(rset4.getString(2) + " ");
+			out.print(rset4.getString(3) + "</p>");
+		}
+		out.print("");
+		out.print("<div style='float: right;'><input type='submit' value='Go'></div>");
+		out.print("</form>");
+
+
+	} else {
+		out.print(error_msg);
+	}
+	
+	
 	%></div>
 
 <%@include file="footer.jsp" %>

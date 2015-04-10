@@ -113,11 +113,11 @@
 				out.print("<div style=\"width: 600px; height: 30px; float:right; position:relative;\">");
 
 				out.print("<div style=\"height: 20px; position:absolute; bottom:0; right:5px;\" class=\"boldTxt\">"
-						+ revset.getString("r_rating") + "</div>");
-				out.print("</div><div style=\"clear:both;\"></div>");
+						+ revset.getString("r_rating") );
+				out.print("</div><div style=\"clear:both;\"></div>"+ "</div>");
 
 				out.print("<div class=\"boldTxt\" style=\"padding: 10px;\">");
-				out.print("anonymous says:");
+				out.print("<h4>" + revset.getString("r_title") + "</h4>");
 
 				//out.print("</div>");
 
