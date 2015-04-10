@@ -1,6 +1,7 @@
 <!-- This import is necessary for JDBC -->
 <%@ page import="java.sql.*"%>
 <%@ page import="java.awt.Point"%>
+
 <!-- Database connection and query -->
 
 <%

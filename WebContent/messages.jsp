@@ -7,6 +7,15 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 
 <title>User Messages</title>
 <%@ page import="java.sql.*"%>
@@ -20,6 +29,8 @@
         String sql;
         ResultSet rset = null;
         ResultSet revset = null;
+        ResultSet revset2 = null;
+
         
         String uni1 = String.valueOf(session.getAttribute("uni"));
        
@@ -33,12 +44,10 @@
             sql = "SELECT * FROM messages where uni1='" + uni1 + "' ORDER BY m_datetime DESC";
             pstmt = conn.prepareStatement(sql);
             revset = pstmt.executeQuery();
-            
-            if (revset != null) {
-            	revset.last();
-                numResults = revset.getRow();
-                revset.beforeFirst();
-            }
+       
+            sql = "SELECT * FROM messages where uni2='" + uni1 + "' ORDER BY m_datetime DESC";
+            pstmt = conn.prepareStatement(sql);
+            revset2 = pstmt.executeQuery();
             
         } catch (SQLException e) {
             error_msg = e.getMessage();
@@ -58,7 +67,7 @@
 	<div class="mainDiv">
 
 
-		<div class="mainDiv" style="margin-top: 50px; margin-left: 10px;">
+		<div style="margin-top: 10px">
 			Messages
 						<%
 			if(revset != null) {
@@ -74,6 +83,18 @@
 				out.print(error_msg);
 				}
 
+			if(revset2 != null) {
+				while(revset2.next()) {			
+					out.print("<p>" + revset2.getString("m_datetime") + "</p>");
+					out.print("<p>" + revset2.getString("m_body") + "</p>");
+					out.print("<p>" + revset2.getString("uni2") + "</p>");
+
+				}
+				
+				
+				} else {
+				out.print(error_msg);
+				}
 					
 				
 		%>
