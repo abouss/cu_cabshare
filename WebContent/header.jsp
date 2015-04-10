@@ -6,19 +6,46 @@
    </div>
    <div style="clear:both;"></div>
    <div style="width:100%; margin-top: 5px; height: 30px; background-color:#192f5f;">
-      <div style="padding-top:5px; width: 800px; height: 30px; margin: 0px auto;">
-         <div class="navlinks" style="float:right; width:300px;">
+         <div class="btn-group" style="float:left;">
+					<!-- Single button -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-warning btn-sm dropdown-toggle"
+							data-toggle="dropdown" aria-expanded="false">
+							The Cabs <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="/cu_cabshare/company.jsp?t_id=4001">Yellow Cab</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4002">Uber</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4003">Quick Ride Corp</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4004">Future Cab</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4005">Metroline</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4006">Harlem Car Service</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4007">Hoyt Limo</a></li>
+							<li><a href="/cu_cabshare/company.jsp?t_id=4008">New Bell</a></li>
+
+						</ul>
+					</div>
+
+				</div>
+      <div style="width: 800px; height: 30px; margin: 0px auto;">
+
+      
+         <div class="navlinks" style="padding-top:5px; float:right; width:300px;">
             <%
                String uni = String.valueOf(session.getAttribute("name"));
                if (uni.equals("null")) {
                	out.print("<a href=\"register.jsp\">Sign Up</a>");
                } else {
-                out.print("Cab your heart out, <a href=\'profile.jsp\'>" + uni + ".</a> <a href=\"logout.jsp\">Or logout?</a>");
+                out.print("Cab your heart out, <a href=\'profile.jsp\'>" + uni + ".</a> <a href=\"logout.jsp\">Or just logout?</a>");
                }  
                %>
+               
          </div>
          
+               
+
          
       </div>
+      
    </div>
 </div>
