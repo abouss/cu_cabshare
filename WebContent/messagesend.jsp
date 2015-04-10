@@ -36,12 +36,8 @@
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
 		
-<<<<<<< HEAD
-		
-=======
 	response.sendRedirect("messages.jsp");
 
->>>>>>> origin/master
     %>
     
     
