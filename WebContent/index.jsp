@@ -43,6 +43,7 @@
 							<div class="col-md-3">
 								<div class="title" style="height: 32px;">Date:</div>
 
+<<<<<<< HEAD
     <div class="well">
   <div id="datetimepicker2" class="input-append">
     <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"></input>
@@ -72,13 +73,30 @@
     });
   });
 </script>
+=======
+											<div class="form-group">
+												<div class='input-group date' id='datetimepicker3'>
+													<input type='text' class="form-control" /> <span
+														class="input-group-addon"> <span
+														class="glyphicon glyphicon-time"></span>
+													</span>
+												</div>
+											</div>
+										<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>
+>>>>>>> origin/master
 							</div>
 
 							<div class="col-md-3">
 								<div class="title" style="height: 32px;">Starting
 									Location:</div>
 
-							<!-- 	<div class="radio">
+								<!-- 	<div class="radio">
 									<label> <input type="radio" name="optionsRadios"
 										id="optionsRadios1" value="1000" checked> Columbia - Carmen
 									</label>
