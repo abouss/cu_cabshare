@@ -30,6 +30,8 @@
 	ResultSet rset2 = null;
 	ResultSet rset3 = null;
 	ResultSet rset4 = null;
+	ResultSet rset5 = null;
+
 
 	String loc1 = request.getParameter("loc1");
 	String loc2 = request.getParameter("loc2");
@@ -71,6 +73,10 @@
 		sql = "SELECT * FROM airlines";
 		pstmt = conn.prepareStatement(sql);
 		rset4 = pstmt.executeQuery();
+		
+		sql = "SELECT price FROM prices where t_id='"+ t_id + "'" ;
+		pstmt = conn.prepareStatement(sql);
+		rset5 = pstmt.executeQuery();
 
 	} catch (SQLException e) {
 		error_msg = e.getMessage();
@@ -137,6 +143,20 @@
 			}
 
 			out.print("<p>At: <input type='checkbox' name='datetime' value='"+ date + "'> " + date + "<br></p>");
+
+			
+			if (rset5 != null) {
+				if (rset5.next()) {
+					out.print("<p>To: ");
+					out.print("<p>You'll probably have to pay around $" + rset5.getString(1) + ", plus tip.</p><p> Just a heads up.</p>");
+
+				}
+
+			} else {
+				out.print(error_msg);
+			}
+			
+			
 
 			
 			out.print("</div>");
