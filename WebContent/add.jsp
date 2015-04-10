@@ -96,7 +96,7 @@
 			out.print("In order to book a ride, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
 		} else {
 
-			out.print("<form name='advanced_search' action='add.jsp' method='get'>");
+			out.print("<form name='advanced_search' action='addride.jsp' method='get'>");
 
 			out.print("<div class='row'>");
 

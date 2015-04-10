@@ -45,7 +45,7 @@
                 ResultSet revset = null;
                 
                 try {
-                	sql = "SELECT * FROM rides where uni='" + uni1 + "'";
+                	sql = "SELECT * FROM rides where uni='" + uni1 + "' ORDER BY datetime ";
                 	pstmt = conn.prepareStatement(sql);
                     rset = pstmt.executeQuery();
                 	
@@ -63,12 +63,41 @@
                 
             	if(rset != null) {
     				while(rset.next()) {			
-    					out.print("<p>" + rset.getString("uni") + "</p>");
+/*     					out.print("<p>" + rset.getString("uni") + "</p>");
     					out.print("<p>" + rset.getString("c_id") + "</p>");
     					out.print("<p>" + rset.getString("a_id") + "</p>");
     					out.print("<p>" + rset.getString("line_id") + "</p>");
     					out.print("<p>" + rset.getString("t_id") + "</p>");
-    					out.print("<p>" + rset.getString("p_datetime") + "</p>");
+    					out.print("<p>" + rset.getString("datetime") + "</p>"); */
+    					
+    					out.print("<div class=\"reviewRow\">");
+
+    					out.print("<div style=\"width: 600px; height: 30px; float:right; position:relative;\">");
+
+    					out.print("<div style=\"height: 20px; position:absolute; bottom:0; right:5px;\" class=\"boldTxt\">"
+    							+ rset.getString("uni") );
+    					out.print("</div><div style=\"clear:both;\"></div>"+ "</div>");
+
+    					out.print("<div class=\"boldTxt\" style=\"padding: 5px;\">");
+    					out.print("<h4>" + rset.getString("datetime") + "</h4>");
+
+    					//out.print("</div>");
+
+    					//out.print("<div style=\"float:left; margin-top: 20px;\"><h3>");
+
+    					/* out.print(" story:"); */
+    					//out.print("</h3></div>");
+    					out.print("</div>");
+
+    					out.print("<div style=\"padding: 10px;\">");
+    					out.print("<p>" + rset.getString("c_id") + "</p>");
+    					out.print("<p>" + rset.getString("a_id") + "</p>");
+    					out.print("<p>" + rset.getString("line_id") + "</p>");
+    					out.print("<p>" + rset.getString("t_id") + "</p>");
+    					out.print("</div>");
+    					
+
+    					out.print("</div>");
 
     				}
     				

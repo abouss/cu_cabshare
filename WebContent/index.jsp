@@ -49,7 +49,7 @@
 
 								
 									<div id="datetimepicker2" class="input-append">
-										<input data-format="MM/dd/yyyy HH:mm:ss PP" type="text" name="datetime"></input>
+										<input data-format="yyyy-MM-dd HH:mm:ss" type="text" name="datetime"></input>
 										<span class="add-on"> <i data-time-icon="icon-time"
 											data-date-icon="icon-calendar"> </i>
 										</span>

@@ -7,7 +7,6 @@
 	<LINK href="css/main.css" rel="stylesheet" type="text/css">
    	   <link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<title>Insert title here</title>
 	</head>
 	<%@ page import="java.sql.*"%>
    <%@ page import="javax.sql.*"%>
@@ -29,7 +28,7 @@
    
  
    	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
-		sql += "values ('" + "4045" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
+		sql += "values ('" + "4046" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
 		
