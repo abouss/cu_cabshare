@@ -71,32 +71,10 @@
 		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
 			<%
-<<<<<<< HEAD
-			if(revset != null) {
-				while(revset.next()) {			
-					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
-					out.print("<p>" + "Message: " + revset.getString("m_body") + "</p>");
-					out.print("<p>" + "From: " + revset.getString("uni1") + "</p>");
-					out.print("<p>" + "==========================================" + "</p>");
-				}
-				
-				
-				} else {
-				out.print(error_msg);
-				}		
-=======
-		
->>>>>>> origin/master
+
 						if(revset3 != null) {
 							while(revset3.next()) {			
-/* 								out.print("<p>" + "Date: " + revset3.getString("m_datetime") + "</p>");
-								out.print("<p>" + "Message: " + revset3.getString("m_body") + "</p>");
-								out.print("<p>" + "From: " + revset3.getString("uni1") + "</p>");
-<<<<<<< HEAD
-								out.print("<p>" + "==========================================" + "</p>");
-							}							
-=======
-								out.print("<p>" + "==========================================" + "</p>"); */
+
 								
 								out.print("<div class=\"reviewRow\">");
 
@@ -126,13 +104,10 @@
 
 							}
 							
-							
->>>>>>> origin/master
 							} else {
 							out.print(error_msg);
 							}
-
-					
+		
 				
 		%>
 
