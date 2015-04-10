@@ -93,8 +93,10 @@
 			out.print("In order to book a ride, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
 		} else {
 
+			out.print("<div class='col-md-'>");
 			if (rset != null) {
 				while (rset.next()) {
+					
 					out.print("<p>From: ");
 					out.print(rset.getString(1) + " ");
 					out.print(rset.getString(2) + " ");
