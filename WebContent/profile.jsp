@@ -42,14 +42,94 @@
                 StringBuilder sb;
                 String sql;
                 ResultSet rset = null;
-                ResultSet revset = null;
+                String dorm = "not working";
+                String c_id = "not working";
                 
                 try {
                 	sql = "SELECT * FROM rides where uni='" + uni1 + "' ORDER BY datetime ";
                 	pstmt = conn.prepareStatement(sql);
                     rset = pstmt.executeQuery();
-                	
                     
+                    
+                	if(rset != null) {
+        				while(rset.next()) {
+
+        					c_id = rset.getString("c_id");
+        					String a_id = rset.getString("a_id");
+        					String line_id = rset.getString("line_id");
+        					String t_id= rset.getString("t_id");
+        					
+        					ResultSet revset = null;
+        	                ResultSet revvset = null;
+        	                ResultSet revvvset = null;
+        	                ResultSet revvvvset = null;
+        					
+        					
+        					sql = "SELECT * FROM campus_loc where c_id='" + c_id;
+                            pstmt = conn.prepareStatement(sql);
+                            revset = pstmt.executeQuery();
+                            
+                            sql = "SELECT * FROM airports where a_id='" + a_id;
+                            pstmt = conn.prepareStatement(sql);
+                            revvset = pstmt.executeQuery();
+                            
+                            sql = "SELECT * FROM airlines where line_id='" + line_id;
+                            pstmt = conn.prepareStatement(sql);
+                            revvvset = pstmt.executeQuery();
+                            
+                            sql = "SELECT * FROM taxis where t_id='" + t_id;
+                        	pstmt = conn.prepareStatement(sql);
+                        	revvvvset = pstmt.executeQuery();
+        				
+    /*     					out.print("<p>" + rset.getString("uni") + "</p>");
+        					out.print("<p>" + rset.getString("c_id") + "</p>");
+        					out.print("<p>" + rset.getString("a_id") + "</p>");
+        					out.print("<p>" + rset.getString("line_id") + "</p>");
+        					out.print("<p>" + rset.getString("t_id") + "</p>");
+        					out.print("<p>" + rset.getString("datetime") + "</p>"); */
+        					
+        					out.print("<div class=\"reviewRow\">");
+        					out.print("<div style=\"width: 600px; height: 30px; float:right; position:relative;\">");
+        					out.print("<div style=\"height: 20px; position:absolute; bottom:0; right:5px;\" class=\"boldTxt\">" + rset.getString("uni") );
+        					out.print("</div><div style=\"clear:both;\"></div>"+ "</div>");
+        					out.print("<div class=\"boldTxt\" style=\"padding: 5px;\">");
+        					out.print("<h4>" + rset.getString("datetime") + "</h4>");
+
+        					//out.print("</div>");
+
+        					//out.print("<div style=\"float:left; margin-top: 20px;\"><h3>");
+
+        					/* out.print(" story:"); */
+        					//out.print("</h3></div>");
+        					out.print("</div>");
+
+        					out.print("<div style=\"padding: 10px;\">");
+        					
+        					if (revset != null) {
+        						while (revset.next()) {
+                 					out.print(revset.getString("dorm"));
+        						}
+        						
+        					} else {
+        						out.print(error_msg);
+        					}
+        					
+        					
+         					out.print("<p>" + revset.getString("dorm") + "</p>");
+        					out.print("<p>" + revvset.getString("airport_name") + "</p>");
+        					out.print("<p>" + revvvset.getString("line_name") + "</p>");
+        					out.print("<p>" + revvvvset.getString("t_name") + "</p>"); 
+        					out.print("</div>");
+        					
+
+        					out.print("</div>");
+
+        				}
+        				
+        				
+        				} else {
+        				out.print(error_msg);
+        				}
                     
                 } catch (SQLException e) {
                     error_msg = e.getMessage();
@@ -61,50 +141,10 @@
                     
                 }
                 
-            	if(rset != null) {
-    				while(rset.next()) {			
-/*     					out.print("<p>" + rset.getString("uni") + "</p>");
-    					out.print("<p>" + rset.getString("c_id") + "</p>");
-    					out.print("<p>" + rset.getString("a_id") + "</p>");
-    					out.print("<p>" + rset.getString("line_id") + "</p>");
-    					out.print("<p>" + rset.getString("t_id") + "</p>");
-    					out.print("<p>" + rset.getString("datetime") + "</p>"); */
-    					
-    					out.print("<div class=\"reviewRow\">");
-
-    					out.print("<div style=\"width: 600px; height: 30px; float:right; position:relative;\">");
-
-    					out.print("<div style=\"height: 20px; position:absolute; bottom:0; right:5px;\" class=\"boldTxt\">"
-    							+ rset.getString("uni") );
-    					out.print("</div><div style=\"clear:both;\"></div>"+ "</div>");
-
-    					out.print("<div class=\"boldTxt\" style=\"padding: 5px;\">");
-    					out.print("<h4>" + rset.getString("datetime") + "</h4>");
-
-    					//out.print("</div>");
-
-    					//out.print("<div style=\"float:left; margin-top: 20px;\"><h3>");
-
-    					/* out.print(" story:"); */
-    					//out.print("</h3></div>");
-    					out.print("</div>");
-
-    					out.print("<div style=\"padding: 10px;\">");
-    					out.print("<p>" + rset.getString("c_id") + "</p>");
-    					out.print("<p>" + rset.getString("a_id") + "</p>");
-    					out.print("<p>" + rset.getString("line_id") + "</p>");
-    					out.print("<p>" + rset.getString("t_id") + "</p>");
-    					out.print("</div>");
-    					
-
-    					out.print("</div>");
-
-    				}
-    				
-    				
-    				} else {
-    				out.print(error_msg);
-    				}
+                out.print(dorm);
+                
+                
+        
                    
                } 
                
