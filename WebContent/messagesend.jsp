@@ -29,7 +29,7 @@
    
  
    	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
-		sql += "values ('" + "4021" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
+		sql += "values ('" + "4045" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
 		
