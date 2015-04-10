@@ -71,7 +71,6 @@
 		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
 			<%
-<<<<<<< HEAD
 			if(revset != null) {
 				while(revset.next()) {			
 					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
@@ -90,19 +89,7 @@
 								out.print("<p>" + "Message: " + revset3.getString("m_body") + "</p>");
 								out.print("<p>" + "From: " + revset3.getString("uni1") + "</p>");
 								out.print("<p>" + "==========================================" + "</p>");
-=======
-	
-						
-						if(revset3 != null) {
-							while(revset3.next()) {			
-								out.print("<p>" + revset3.getString("m_datetime") + "</p>");
-								out.print("<p>" + revset3.getString("m_body") + "</p>");
-								out.print("<p>" + revset3.getString("uni1") + "</p>");
-
->>>>>>> origin/master
-							}
-							
-							
+							}							
 							} else {
 							out.print(error_msg);
 							}
