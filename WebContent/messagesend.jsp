@@ -13,19 +13,38 @@
    <%@ page import="javax.sql.*"%>
    <%@ page import="javax.servlet.*,java.text.*"%>
    <%@include file="init.jsp"%>	
+   <%
+   	PreparedStatement ps = null;
+	StringBuilder sb;
+	String sql;
+	ResultSet rset = null;
+	ResultSet revset = null;%>
 	<body>
-	<% String uni1 = request.getParameter("uni1");
-    String uni2 = request.getParameter("uni2");
+	<%
+	String uni1 = String.valueOf(session.getAttribute("uni"));
+	
+	
+    String uni2 = request.getParameter("UNI");
     String message = request.getParameter("message");
     
-    	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
-		sql += "values ('" + uni1 + "','" + uni1
-				+ "','" + uni1 + "','" + uni1 + "')";
+    out.print(uni1);
+    out.print(uni2);
+    
+ 
+   	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
+		sql += "values ('" + "4016" + "','" + "2015-07-17 09:45:00" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
 		
+<<<<<<< HEAD
 		
+=======
+	response.sendRedirect("messages.jsp");
+
+>>>>>>> origin/master
     %>
+    
+    
 <%@include file="footer.jsp" %>
 </body>
 </html>
