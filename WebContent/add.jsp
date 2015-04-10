@@ -83,21 +83,26 @@
 </head>
 <body>
 	<div class="mainDiv">
-	
-	<div class="row">
-		Here is the information about the ride you wish to add:
-		<%
+
+		<div class="row">
+		
+			<%
 		String uni1 = String.valueOf(session.getAttribute("uni"));
 
 		if (uni1.equals("null")) {
 			out.print("In order to book a ride, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
 		} else {
 
-			out.print("<div class='col-md-'>");
+			out.print("<form name='advanced_search' action='add.jsp' method='get'>");
+
+			out.print("<div class='row'>");
+
+			out.print("<div class='col-md-5'>");
+			out.print("<div class='title' style='height: 32px;'>Here is the information about the ride you wish to add:</div>");
 			if (rset != null) {
 				while (rset.next()) {
 					
-					out.print("<p>From: ");
+					out.print("<p style='padding-top:30px;'>From: ");
 					out.print(rset.getString(1) + " ");
 					out.print(rset.getString(2) + " ");
 					out.print(rset.getString(3) + "</p>");
@@ -131,8 +136,17 @@
 				out.print(error_msg);
 			}
 
+			out.print("</div>");
+
+			out.print("<div class='col-md-3'>");
+/* 			out.print("<form name='advanced_search' action='add.jsp' method='get'>");
+ */
+			%>
+
+			<div class="title" style="height: 32px;">Pick an airline:</div>
+
+			<%
 			if (rset4 != null) {
-				out.print("<form name='advanced_search' action='add.jsp' method='get'>");
 
 				while (rset4.next()) {
 					out.print("<p>Your airlines are: ");
@@ -140,16 +154,32 @@
 					out.print(rset4.getString(2) + " ");
 					out.print(rset4.getString(3) + "</p>");
 				}
-				out.print("");
+
+				out.print("</div>");
+
+				out.print("<div class='col-md-3'>");
+
 				out.print("<div style='float: right;'><input type='submit' value='Go'></div>");
-				out.print("</form>");
+				
+				out.print("</div>");
+
 
 			} else {
 				out.print(error_msg);
 			}
+			out.print("</div>");
+
+			
 		}
+		out.print("</div>");
+		
+		out.print("</form>");
+
+
+		
+		
 	%>
-	</div>
+		</div>
 	</div>
 
 	<%@include file="footer.jsp"%>
