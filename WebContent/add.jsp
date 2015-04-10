@@ -34,6 +34,9 @@
 	String loc1 = request.getParameter("loc1");
 	String loc2 = request.getParameter("loc2");
 	String t_id = request.getParameter("t_id");
+	String date = request.getParameter("datetime");
+
+	
 
 	int numResults = 0;
 	try {
@@ -133,6 +136,9 @@
 				out.print(error_msg);
 			}
 
+			out.print("<p>At: <input type='checkbox' name='datetime' value='"+ date + "'> " + date + "<br></p>");
+
+			
 			out.print("</div>");
 
 			out.print("<div class='col-md-3'>");
