@@ -13,7 +13,7 @@
 		<div class="btn-group" style="float: left;">
 			<!-- Single button -->
 			<div class="btn-group">
-				<button type="button" style="margin-left: 20px;"
+				<button type="button" style="margin-left: 120px;"
 					class="btn btn-warning btn-xs dropdown-toggle"
 					data-toggle="dropdown" aria-expanded="false">
 					The Cabs <span class="caret"></span>
