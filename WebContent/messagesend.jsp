@@ -7,7 +7,6 @@
 	<LINK href="css/main.css" rel="stylesheet" type="text/css">
    	   <link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<title>Insert title here</title>
 	</head>
 	<%@ page import="java.sql.*"%>
    <%@ page import="javax.sql.*"%>
