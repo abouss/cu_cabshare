@@ -27,13 +27,15 @@
     String message = request.getParameter("message");
    
  
-   	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
-		sql += "values ('" + "4046" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
+    	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
+		sql += "values ('" + (4000 + Math.random() * 5000) + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
 		ps = conn.prepareStatement(sql);
-		int rows = ps.executeUpdate();
+		int rows = ps.executeUpdate(); 
 		
-	response.sendRedirect("messages.jsp");
-
+		
+		/* out.print(uni1); */
+ 	response.sendRedirect("messages.jsp");
+ 
     %>
     
     

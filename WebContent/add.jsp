@@ -110,9 +110,9 @@
 			out.print("<div class='title' style='height: 32px;'>Here is the information about the ride you wish to add:</div>");
 			if (rset != null) {
 				while (rset.next()) {
-					out.print("<p style='padding-top:30px;'>From: ");
+					out.print("<h5 style='padding-top:30px;'>From: ");
 					/* out.print(rset.getString(1) + " "); */
-					out.print("<input type='checkbox' name='ride1' value='"+ rset.getString(1) + "'> "+ rset.getString(2)+ " " + rset.getString(3) + "<br></p>");
+					out.print("<input type='checkbox' name='ride1' value='"+ rset.getString(1) + "'> "+ rset.getString(2)+ " " + rset.getString(3) + "<br></h5>");
 
 				}
 
@@ -122,8 +122,8 @@
 
 			if (rset2 != null) {
 				while (rset2.next()) {
-					out.print("<p>To: ");
-					out.print("<input type='checkbox' name='ride2' value='"+ rset2.getString(1) + "'> "+ rset2.getString(2)+ " " + rset2.getString(3) + "<br></p>");
+					out.print("<h5>To: ");
+					out.print("<input type='checkbox' name='ride2' value='"+ rset2.getString(1) + "'> "+ rset2.getString(2)+ " " + rset2.getString(3) + "<br></h5>");
 
 				}
 
@@ -133,8 +133,8 @@
 
 			if (rset3 != null) {
 				while (rset3.next()) {
-					out.print("<p>To: ");
-					out.print("<input type='checkbox' name='cab' value='"+ rset3.getString(1) + "'> "+ rset3.getString(2)+ " " + rset3.getString(3) + "<br></p>");
+					out.print("<h5>Using: ");
+					out.print("<input type='checkbox' name='cab' value='"+ rset3.getString(1) + "'> "+ rset3.getString(2) + "<br></h5>");
 
 				}
 
@@ -142,12 +142,11 @@
 				out.print(error_msg);
 			}
 
-			out.print("<p>At: <input type='checkbox' name='datetime' value='"+ date + "'> " + date + "<br></p>");
+			out.print("<h5>At: <input type='checkbox' name='datetime' value='"+ date + "'> " + date + "<br></h5>");
 
 			
 			if (rset5 != null) {
 				if (rset5.next()) {
-					out.print("<p>To: ");
 					out.print("<p>You'll probably have to pay around $" + rset5.getString(1) + ", plus tip.</p><p> Just a heads up.</p>");
 
 				}

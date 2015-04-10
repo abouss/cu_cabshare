@@ -80,7 +80,7 @@
          
          					if (u_id != "0") {
          						session.setAttribute("name", u_id);
-                 				session.setAttribute("uni", set.getString("uni"));
+                 				session.setAttribute("uni", uni);
 
          					} else {
          						System.out.println("uni of 0... error");

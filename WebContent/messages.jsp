@@ -15,6 +15,21 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
+<link
+	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 
 
 <title>User Messages</title>
@@ -44,7 +59,7 @@
             pstmt = conn.prepareStatement(sql);
             revset = pstmt.executeQuery(); */
             
-            sql = "SELECT * FROM messages where uni2='" + uni1 + "' ORDER BY m_datetime DESC";
+            sql = "SELECT * FROM messages where uni2='" + uni1 + "' ORDER BY m_id";
             pstmt = conn.prepareStatement(sql);
             revset3 = pstmt.executeQuery();
   
@@ -70,6 +85,8 @@
 
 		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
+			
+			
 			<%
 
 						if(revset3 != null) {
@@ -111,13 +128,13 @@
 				
 		%>
 
-		</div>
+		
 		<hr>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="well well-sm">
+				<div class="well well-xs">
 					<form class="form-horizontal" action="messagesend.jsp"
 						method="post">
 						<fieldset>
@@ -155,6 +172,11 @@
 			</div>
 		</div>
 	</div>
+				<div style="padding-bottom: 50px;"></div>
+	
+	</div>
+	
+	
 
 	<%@include file="footer.jsp"%>
 </body>

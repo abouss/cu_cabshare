@@ -15,6 +15,21 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
+<link
+	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 
 
 <title>Taxi Company</title>
@@ -66,7 +81,7 @@
 
 	<div class="mainDiv">
 
-		<div class="row" style="margin-top: 40px">
+		<div class="row" style="margin-top: 40px;">
 			<div class="col-md-4">
 
 				<%
@@ -130,8 +145,10 @@
 				out.print("<div style=\"padding: 10px;\">");
 				out.print(revset.getString("r_body"));
 				out.print("</div>");
+				
 
 				out.print("</div>");
+				
 
 			}
 		} else {
@@ -142,7 +159,8 @@
 		if (pstmt != null)
 			pstmt.close();
 	%>
-
+			<div style="padding-bottom: 100px;"></div>
+	
 	</div>
 
 

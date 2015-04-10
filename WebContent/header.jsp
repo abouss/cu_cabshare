@@ -13,8 +13,8 @@
 		<div class="btn-group" style="float: left;">
 			<!-- Single button -->
 			<div class="btn-group">
-				<button type="button" style="margin-left: 125px;"
-					class="btn btn-warning btn-sm dropdown-toggle"
+				<button type="button" style="margin-left: 20px;"
+					class="btn btn-warning btn-xs dropdown-toggle"
 					data-toggle="dropdown" aria-expanded="false">
 					The Cabs <span class="caret"></span>
 				</button>
@@ -35,9 +35,8 @@
 				</ul>
 			</div>
 
-			<a class="btn btn-warning btn-sm" style="margin-left:10px;" href="/cu_cabshare/messages.jsp" role="button">Messages</a>
 
-			<a class="btn btn-warning btn-sm" style="margin-left:10px;" href="/cu_cabshare/rides.jsp" role="button">Rides</a>
+			<a class="btn btn-warning btn-xs" style="margin-left:10px;" href="/cu_cabshare/rides.jsp" role="button">The Rides</a>
 
 
 		</div>
@@ -46,7 +45,7 @@
 
 
 			<div class="navlinks"
-				style="padding-top: 5px; float: right; width: 300px;">
+				style="padding-top: 5px; float: right; width: 400px;">
 				<%
                String uni = String.valueOf(session.getAttribute("name"));
                if (uni.equals("null")) {
