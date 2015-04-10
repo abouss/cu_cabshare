@@ -144,16 +144,15 @@
 
 			<%
 			if (rset4 != null) {
-				
-				out.print("<select name='carlist' form='carform'><option value='volvo'>Volvo</option></select>");
-
+/*  				out.print("<select name='airline'><option value='volvo'>Volvo</option></select>");
+ */ 	
+ 				out.print("<select name='airline'>");
 				while (rset4.next()) {
-					out.print("<p>Your airlines are: ");
 					
-					out.print(rset4.getString(1) + " ");
-					out.print(rset4.getString(2) + " ");
-					out.print(rset4.getString(3) + "</p>");
+					out.print("<option value='"+ rset4.getString(1) + "'> "+ rset4.getString(2)+ " " + rset4.getString(3) + "</option></p>");
+
 				}
+				out.print("</select>");
 
 				out.print("</div>");
 
