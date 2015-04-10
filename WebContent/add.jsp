@@ -88,7 +88,7 @@
 		String uni1 = String.valueOf(session.getAttribute("uni"));
 
 		if (uni1.equals("null")) {
-			out.print("In order to see a list of your rides, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
+			out.print("In order to book a ride, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
 		} else {
 
 			if (rset != null) {
