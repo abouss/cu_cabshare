@@ -139,7 +139,7 @@
 <body>
 
 	<div class="container" style="margin-top: 200px">
-	
+
 		<div id="input_form">
 			<div style="margin: 0px auto;">
 				<div>
@@ -158,7 +158,13 @@
 								<div class="title" style="height: 32px;">Starting
 									Location:</div>
 
-								<select id="stst" name="loc1">
+							<!-- 	<div class="radio">
+									<label> <input type="radio" name="optionsRadios"
+										id="optionsRadios1" value="1000" checked> Columbia - Carmen
+									</label>
+								</div> -->
+
+								<select id="stst" name="camp1">
 									<option value="1000">Columbia - Carmen</option>
 									<option value="1001">Columbia - Shapiro</option>
 									<option value="1002">Columbia - Woodbridge</option>
@@ -174,7 +180,7 @@
 									<option value="1012">Barnard - Sulzberger</option>
 									<option value="1013">Barnard - Reid</option>
 									<option value="1014">Barnard - Hewit</option>
-									
+
 									<option value="3001">Laguardia - A</option>
 									<option value="3002">Laguardia - B</option>
 									<option value="3003">Laguardia - C</option>
@@ -208,7 +214,7 @@
 									<option value="1012">Barnard - Sulzberger</option>
 									<option value="1013">Barnard - Reid</option>
 									<option value="1014">Barnard - Hewit</option>
-									
+
 									<option value="3001">Laguardia - A</option>
 									<option value="3002">Laguardia - B</option>
 									<option value="3003">Laguardia - C</option>
