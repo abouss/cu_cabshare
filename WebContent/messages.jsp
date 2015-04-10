@@ -48,11 +48,7 @@
             pstmt = conn.prepareStatement(sql);
             revset3 = pstmt.executeQuery();
   
-            if (revset != null) {
-            	revset.last();
-                numResults = revset.getRow();
-                revset.beforeFirst();
-            }
+  
             
         } catch (SQLException e) {
             error_msg = e.getMessage();
@@ -75,24 +71,13 @@
 		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
 			<%
-			if(revset != null) {
-				while(revset.next()) {			
-					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
-					out.print("<p>" + "Message: " + revset.getString("m_body") + "</p>");
-					out.print("<p>" + "From: " + revset.getString("uni2") + "</p>");
-
-				}
-				
-				
-				} else {
-				out.print(error_msg);
-				}
+	
 						
 						if(revset3 != null) {
 							while(revset3.next()) {			
 								out.print("<p>" + revset3.getString("m_datetime") + "</p>");
 								out.print("<p>" + revset3.getString("m_body") + "</p>");
-								out.print("<p>" + revset3.getString("uni2") + "</p>");
+								out.print("<p>" + revset3.getString("uni1") + "</p>");
 
 							}
 							
@@ -111,40 +96,45 @@
 
 	</div>
 	<div class="container">
-	<div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="well well-sm">
-          <form class="form-horizontal" action="messagesend.jsp" method="post">
-          <fieldset>
-            <legend class="text-center">Send a Message!</legend>
-    
-            <!-- Name input-->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="name">Send to:</label>
-              <div class="col-md-9">
-                <input id="UNI" name="UNI" type="text" placeholder="ab1234" class="form-control">
-              </div>
-            </div>
-    
-            <!-- Message body -->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="message">Your message</label>
-              <div class="col-md-9">
-                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
-              </div>
-            </div>
-    
-            <!-- Form actions -->
-            <div class="form-group">
-              <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-              </div>
-            </div>
-          </fieldset>
-          </form>
-        </div>
-      </div>
-	</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="well well-sm">
+					<form class="form-horizontal" action="messagesend.jsp"
+						method="post">
+						<fieldset>
+							<legend class="text-center">Send a Message!</legend>
+
+							<!-- Name input-->
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="name">Send
+									to:</label>
+								<div class="col-md-9">
+									<input id="UNI" name="UNI" type="text" placeholder="ab1234"
+										class="form-control">
+								</div>
+							</div>
+
+							<!-- Message body -->
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="message">Your
+									message</label>
+								<div class="col-md-9">
+									<textarea class="form-control" id="message" name="message"
+										placeholder="Please enter your message here..." rows="5"></textarea>
+								</div>
+							</div>
+
+							<!-- Form actions -->
+							<div class="form-group">
+								<div class="col-md-12 text-right">
+									<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<%@include file="footer.jsp"%>
