@@ -84,7 +84,7 @@
 						out.print(error_msg);
 					}
 
-					out.print("<img src='img/" + img + "' alt='...' class='img-rounded'/>");
+					out.print("<img src='img/" + img + "' alt='...' class='img-circle'/style='margin-left:50px;'>");
 					out.print("</div>");
 
 					out.print("<div class='col-md-6'><div>");

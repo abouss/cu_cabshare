@@ -21,119 +21,6 @@
 <%@ page import="javax.sql.*"%>
 <%@ page import="javax.servlet.*,java.text.*"%>
 <%@include file="init.jsp"%>
-<<<<<<< HEAD
-<%@include file="header.jsp" %>
-
-<body>
-
-	<%
-		/*test*/
-		String email = request.getParameter("email");
-		String password1 = request.getParameter("password1");
-		String password2 = request.getParameter("password2");
-		String usr = request.getParameter("user");
-
-		getServletContext().getRequestDispatcher("/register.jsp").include(
-				request, response);
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		//password and username not null
-		if (!(email.equals(null) || email.equals(""))
-				&& !(password1.equals(null) || password1.equals(""))) {
-			try {
-			    String sql;
-			    
-				if (usr.equals("old")) {
-					/* ------------ login old user --------------- */
-					
-					sql = "select * from users where email='" + email + "' AND password='" + password1 + "'";
-					ps = conn.prepareStatement(sql);
-					rs = ps.executeQuery();
-					
-					if (rs != null && rs.next()) {
-						session.setAttribute("u_id", rs.getInt("u_id"));
-						response.sendRedirect("index.jsp");
-					} else {
-						out.print("wrong login");
-					}
-					
-					
-					
-
-				} else {
-					//passwords match
-					if (password1.equals(password2)) {
-						//get random username --TO DO: RANDOMLY GENERATE USERNAMES
-						String username = "Calliope";
-
-						sql = "insert into users (email, username, password)";
-						sql += "values ('" + email + "','" + username
-								+ "','" + password1 + "')";
-						ps = conn.prepareStatement(sql);
-						int rows = ps.executeUpdate();
-
-						//set the u_id in the setAttributes space
-						int u_id = 0;
-
-						try {
-							//select the u_id that was just inserted into the users table
-							String sql2 = "SELECT u_id from users where email='"
-									+ email + "'";
-							ps = null;
-							ps = conn.prepareStatement(sql2);
-
-							ResultSet set = ps.executeQuery();
-
-							while (set.next()) {
-								u_id = set.getInt("u_id");
-							}
-
-							if (u_id != 0) {
-								session.setAttribute("u_id", u_id);
-							} else {
-								System.out.println("u_id of 0... error");
-							}
-
-						} catch (SQLException e) {
-							error_msg = e.getMessage();
-							System.out.println(error_msg);
-						}
-
-						//upon successful registration redirects to index/home page
-						response.sendRedirect("index.jsp");
-					} else {
-					%>
-					<center>
-						<p style="color: red">Your passwords don't match.</p>
-					</center>
-				
-					<%
-				    }
-				}
-
-			} catch (SQLException sqe) {
-				out.print(sqe);
-			%>
-			
-			
-			
-			<center>
-				<p style="color: red">Your account is already registered. Please
-					login.</p>
-			</center>
-		
-			<%
-			  }
-		} else {
-			%>
-			<center>
-				<p style="color: red">Sorry, your registration is not complete!</p>
-			</center>
-			<%
-		}
-	%>
-=======
 <%@include file="header.jsp"%>
 </head>
 <body>
@@ -164,7 +51,7 @@
 									</label>
 								</div> -->
 
-								<select id="stst" name="camp1">
+								<select id="stst" name="loc1">
 									<option value="1000">Columbia - Carmen</option>
 									<option value="1001">Columbia - Shapiro</option>
 									<option value="1002">Columbia - Woodbridge</option>
@@ -260,9 +147,6 @@
 
 		</div>
 	</div>
-
-
->>>>>>> origin/master
 
 	<%@include file="footer.jsp"%>
 </body>
