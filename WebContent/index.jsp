@@ -52,8 +52,8 @@
 								</div> -->
 
 								<select id="stst" name="loc1">
-									<option value="1000">Columbia - Carmen</option>
-									<option value="1001">Columbia - Shapiro</option>
+									<option value="1000">Columbia - Carman</option>
+									<option value="1001">Columbia - Schapiro</option>
 									<option value="1002">Columbia - Woodbridge</option>
 									<option value="1003">Columbia - Wien</option>
 									<option value="1004">Columbia - EC</option>
@@ -66,12 +66,12 @@
 									<option value="1007">Barnard - 620</option>
 									<option value="1012">Barnard - Sulzberger</option>
 									<option value="1013">Barnard - Reid</option>
-									<option value="1014">Barnard - Hewit</option>
+									<option value="1014">Barnard - Hewitt</option>
 
-									<option value="3001">Laguardia - A</option>
-									<option value="3002">Laguardia - B</option>
-									<option value="3003">Laguardia - C</option>
-									<option value="3004">Laguardia - D</option>
+									<option value="3001">LaGuardia - A</option>
+									<option value="3002">LaGuardia - B</option>
+									<option value="3003">LaGuardia - C</option>
+									<option value="3004">LaGuardia - D</option>
 									<option value="3005">JFK - 1</option>
 									<option value="3006">JFK - 2</option>
 									<option value="3007">JFK - 4</option>
