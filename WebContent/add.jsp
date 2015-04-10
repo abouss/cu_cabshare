@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -16,13 +16,13 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-	<title>Add a Ride</title>
-	<%@ page import="java.sql.*"%>
-	<%@ page import="javax.sql.*"%>
-	<%@ page import="javax.servlet.*,java.text.*"%>
-	<%@include file="init.jsp"%>
-	
-	<%
+<title>Add a Ride</title>
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
+<%@ page import="javax.servlet.*,java.text.*"%>
+<%@include file="init.jsp"%>
+
+<%
 	PreparedStatement pstmt = null;
 	StringBuilder sb;
 	String sql;
@@ -35,43 +35,39 @@
 	String loc2 = request.getParameter("loc2");
 	String t_id = request.getParameter("t_id");
 
-
 	int numResults = 0;
 	try {
 		sql = "SELECT * FROM campus_loc where c_id='" + loc1 + "'";
 		pstmt = conn.prepareStatement(sql);
 		rset = pstmt.executeQuery();
-		
-		if (!rset.isBeforeFirst() ) { 
-			
+
+		if (!rset.isBeforeFirst()) {
+
 			sql = "SELECT * FROM airports where a_id='" + loc1 + "'";
 			pstmt = conn.prepareStatement(sql);
 			rset = pstmt.executeQuery();
-			
-			
+
 		}
-		
+
 		sql = "SELECT * FROM campus_loc where c_id='" + loc2 + "'";
 		pstmt = conn.prepareStatement(sql);
 		rset2 = pstmt.executeQuery();
-		
-		if (!rset2.isBeforeFirst() ) {
-			
+
+		if (!rset2.isBeforeFirst()) {
+
 			sql = "SELECT * FROM airports where a_id='" + loc2 + "'";
 			pstmt = conn.prepareStatement(sql);
 			rset2 = pstmt.executeQuery();
-			
-			
+
 		}
-		
+
 		sql = "SELECT * FROM taxis where t_id='" + t_id + "'";
 		pstmt = conn.prepareStatement(sql);
 		rset3 = pstmt.executeQuery();
-		
+
 		sql = "SELECT * FROM airlines";
 		pstmt = conn.prepareStatement(sql);
 		rset4 = pstmt.executeQuery();
-
 
 	} catch (SQLException e) {
 		error_msg = e.getMessage();
@@ -83,69 +79,74 @@
 
 	}
 %>
- 	<%@include file="header.jsp" %>
+<%@include file="header.jsp"%>
 </head>
 <body>
-	<div class="mainDiv">Here is the information about the ride you wish to add:
-	<% 
-	
-	if (rset != null) {
-		while (rset.next()) {
-			out.print("<p>From: ");
-			out.print(rset.getString(1) + " ");
-			out.print(rset.getString(2) + " ");
-			out.print(rset.getString(3) + "</p>");
+	<div class="mainDiv">
+		Here is the information about the ride you wish to add:
+		<%
+		String uni1 = String.valueOf(session.getAttribute("uni"));
+
+		if (uni1.equals("null")) {
+			out.print("In order to see a list of your rides, please <a class='btn btn-primary' type='button' href=\"register.jsp\">Sign up</a>");
+		} else {
+
+			if (rset != null) {
+				while (rset.next()) {
+					out.print("<p>From: ");
+					out.print(rset.getString(1) + " ");
+					out.print(rset.getString(2) + " ");
+					out.print(rset.getString(3) + "</p>");
+				}
+
+			} else {
+				out.print(error_msg);
+			}
+
+			if (rset2 != null) {
+				while (rset2.next()) {
+					out.print("<p>To: ");
+					out.print(rset2.getString(1) + " ");
+					out.print(rset2.getString(2) + " ");
+					out.print(rset2.getString(3) + "</p>");
+				}
+
+			} else {
+				out.print(error_msg);
+			}
+
+			if (rset3 != null) {
+				while (rset3.next()) {
+					out.print("<p>Using: ");
+					out.print(rset3.getString(1) + " ");
+					out.print(rset3.getString(2) + " ");
+					out.print(rset3.getString(3) + "</p>");
+				}
+
+			} else {
+				out.print(error_msg);
+			}
+
+			if (rset4 != null) {
+				out.print("<form name='advanced_search' action='add.jsp' method='get'>");
+
+				while (rset4.next()) {
+					out.print("<p>Your airlines are: ");
+					out.print(rset4.getString(1) + " ");
+					out.print(rset4.getString(2) + " ");
+					out.print(rset4.getString(3) + "</p>");
+				}
+				out.print("");
+				out.print("<div style='float: right;'><input type='submit' value='Go'></div>");
+				out.print("</form>");
+
+			} else {
+				out.print(error_msg);
+			}
 		}
+	%>
+	</div>
 
-	} else {
-		out.print(error_msg);
-	}
-	
-	if (rset2 != null) {
-		while (rset2.next()) {
-			out.print("<p>To: ");
-			out.print(rset2.getString(1) + " ");
-			out.print(rset2.getString(2) + " ");
-			out.print(rset2.getString(3) + "</p>");
-		}
-
-	} else {
-		out.print(error_msg);
-	}
-	
-	if (rset3 != null) {
-		while (rset3.next()) {
-			out.print("<p>Using: ");
-			out.print(rset3.getString(1) + " ");
-			out.print(rset3.getString(2) + " ");
-			out.print(rset3.getString(3) + "</p>");
-		}
-
-	} else {
-		out.print(error_msg);
-	}
-	
-	if (rset4 != null) {
-		out.print("<form name='advanced_search' action='add.jsp' method='get'>");
-		
-		while (rset4.next()) {
-			out.print("<p>Your airlines are: ");
-			out.print(rset4.getString(1) + " ");
-			out.print(rset4.getString(2) + " ");
-			out.print(rset4.getString(3) + "</p>");
-		}
-		out.print("");
-		out.print("<div style='float: right;'><input type='submit' value='Go'></div>");
-		out.print("</form>");
-
-
-	} else {
-		out.print(error_msg);
-	}
-	
-	
-	%></div>
-
-<%@include file="footer.jsp" %>
+	<%@include file="footer.jsp"%>
 </body>
 </html>
