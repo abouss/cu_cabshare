@@ -41,13 +41,10 @@
         	pstmt = conn.prepareStatement(sql);
             rset = pstmt.executeQuery();
         	
-            sql = "SELECT * FROM messages where uni1='" + uni1 + "' ORDER BY m_datetime DESC";
+            sql = "SELECT * FROM u_msgs where uni='" + uni1 + "'";
             pstmt = conn.prepareStatement(sql);
             revset = pstmt.executeQuery();
        
-            sql = "SELECT * FROM messages where uni2='" + uni1 + "' ORDER BY m_datetime DESC";
-            pstmt = conn.prepareStatement(sql);
-            revset2 = pstmt.executeQuery();
             
         } catch (SQLException e) {
             error_msg = e.getMessage();
@@ -72,9 +69,20 @@
 						<%
 			if(revset != null) {
 				while(revset.next()) {			
-					out.print("<p>" + revset.getString("m_datetime") + "</p>");
-					out.print("<p>" + revset.getString("m_body") + "</p>");
-					out.print("<p>" + revset.getString("uni2") + "</p>");
+					
+					  	sql = "SELECT * FROM messages where m_id='" + revset.getString(2) + "'";
+			            pstmt = conn.prepareStatement(sql);
+			            ResultSet revset4 = pstmt.executeQuery();
+			            
+			            if(revset4 != null) {
+			            	while (revset4.next()) {
+			            		out.print("<p> " + revset4.getString("m_datetime") + "</p>");
+			            		out.print("<p> " + revset4.getString("m_body") + "</p>");
+			            	}
+			            } else {
+			            	out.print(error_msg);
+			            }
+	
 
 				}
 				
@@ -83,18 +91,6 @@
 				out.print(error_msg);
 				}
 
-			if(revset2 != null) {
-				while(revset2.next()) {			
-					out.print("<p>" + revset2.getString("m_datetime") + "</p>");
-					out.print("<p>" + revset2.getString("m_body") + "</p>");
-					out.print("<p>" + revset2.getString("uni2") + "</p>");
-
-				}
-				
-				
-				} else {
-				out.print(error_msg);
-				}
 					
 				
 		%>
