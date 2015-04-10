@@ -23,6 +23,8 @@
 				+ "','" + uni1 + "','" + uni1 + "')";
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
+		
+		
     %>
 <%@include file="footer.jsp" %>
 </body>
