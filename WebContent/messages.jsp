@@ -72,7 +72,7 @@
 	<div class="mainDiv">
 
 
-		<div class="mainDiv" style="margin-top: 10px; margin-left: 10px;">
+		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
 			<%
 			if(revset != null) {

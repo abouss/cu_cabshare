@@ -85,7 +85,7 @@
 	<div class="mainDiv">
 
 		<div class="row">
-		
+
 			<%
 		String uni1 = String.valueOf(session.getAttribute("uni"));
 
@@ -101,11 +101,10 @@
 			out.print("<div class='title' style='height: 32px;'>Here is the information about the ride you wish to add:</div>");
 			if (rset != null) {
 				while (rset.next()) {
-					
 					out.print("<p style='padding-top:30px;'>From: ");
-					out.print(rset.getString(1) + " ");
-					out.print(rset.getString(2) + " ");
-					out.print(rset.getString(3) + "</p>");
+					/* out.print(rset.getString(1) + " "); */
+					out.print("<input type='checkbox' name='ride1' value='"+ rset.getString(1) + "'> "+ rset.getString(2)+ " " + rset.getString(3) + "<br></p>");
+
 				}
 
 			} else {
@@ -115,9 +114,8 @@
 			if (rset2 != null) {
 				while (rset2.next()) {
 					out.print("<p>To: ");
-					out.print(rset2.getString(1) + " ");
-					out.print(rset2.getString(2) + " ");
-					out.print(rset2.getString(3) + "</p>");
+					out.print("<input type='checkbox' name='ride2' value='"+ rset2.getString(1) + "'> "+ rset2.getString(2)+ " " + rset2.getString(3) + "<br></p>");
+
 				}
 
 			} else {
@@ -126,10 +124,9 @@
 
 			if (rset3 != null) {
 				while (rset3.next()) {
-					out.print("<p>Using: ");
-					out.print(rset3.getString(1) + " ");
-					out.print(rset3.getString(2) + " ");
-					out.print(rset3.getString(3) + "</p>");
+					out.print("<p>To: ");
+					out.print("<input type='checkbox' name='cab' value='"+ rset3.getString(1) + "'> "+ rset3.getString(2)+ " " + rset3.getString(3) + "<br></p>");
+
 				}
 
 			} else {
@@ -147,9 +144,12 @@
 
 			<%
 			if (rset4 != null) {
+				
+				out.print("<select name='carlist' form='carform'><option value='volvo'>Volvo</option></select>");
 
 				while (rset4.next()) {
 					out.print("<p>Your airlines are: ");
+					
 					out.print(rset4.getString(1) + " ");
 					out.print(rset4.getString(2) + " ");
 					out.print(rset4.getString(3) + "</p>");
