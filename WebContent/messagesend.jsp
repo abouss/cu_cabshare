@@ -26,13 +26,10 @@
 	
     String uni2 = request.getParameter("UNI");
     String message = request.getParameter("message");
-    
-    out.print(uni1);
-    out.print(uni2);
-    
+   
  
    	sql = "insert into messages (m_id, m_datetime, m_body, uni1, uni2)";
-		sql += "values ('" + "4016" + "','" + "2015-07-17 09:45:00" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
+		sql += "values ('" + "4021" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
 		ps = conn.prepareStatement(sql);
 		int rows = ps.executeUpdate();
 		

@@ -40,14 +40,14 @@
         	pstmt = conn.prepareStatement(sql);
             rset = pstmt.executeQuery();
         	
-            sql = "SELECT * FROM messages where uni1='" + uni1 + "' ORDER BY m_datetime DESC";
+         /*    sql = "SELECT * FROM messages where uni1='" + uni1 + "' ORDER BY m_datetime DESC";
             pstmt = conn.prepareStatement(sql);
-            revset = pstmt.executeQuery();
+            revset = pstmt.executeQuery(); */
             
             sql = "SELECT * FROM messages where uni2='" + uni1 + "' ORDER BY m_datetime DESC";
             pstmt = conn.prepareStatement(sql);
             revset3 = pstmt.executeQuery();
-            
+  
             if (revset != null) {
             	revset.last();
                 numResults = revset.getRow();
