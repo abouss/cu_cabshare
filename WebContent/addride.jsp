@@ -24,20 +24,32 @@
 
     String from = request.getParameter("ride1");
     String to = request.getParameter("ride2");
-    String cab = request.getParameter("cab");
+    String t_id = request.getParameter("cab");
     String datetime = request.getParameter("datetime");
+    String line_id = request.getParameter("airline");
+
+    String c_id = "";
+    String a_id = "";
 
     if (from.substring(0,1).equals(to.substring(0,1))) {
     	out.print("<script type='text/javascript'>alert('Invalid Trip: Cabshares can only be made from campus to airports, or from airports to campus.')</script>");
 
     } else {
     	
-       	sql = "insert into rides (uni, c_id, a_id, line_id, t_id, p_datetime)";
-    		sql += "values ('" + "4045" + "','" + "2015-07-17 09:45:00.0" + "','" + message + "','" + uni1 + "','" +  uni2 + "')";
+    	if(from.substring(0,1).equals("1")) {
+    		c_id = from;
+    		a_id = to;
+    	} else {
+    		a_id = from;
+    		c_id = to;
+    	}
+    	
+       	sql = "insert into rides (uni, c_id, a_id, line_id, t_id, datetime)";
+    		sql += "values ('" + uni1 + "','" + c_id + "','" + a_id + "','" + line_id + "','" +  t_id + "','" +  datetime + "')";
     		ps = conn.prepareStatement(sql);
     		int rows = ps.executeUpdate();
     		
-    	response.sendRedirect("messages.jsp");
+    	response.sendRedirect("profile.jsp");
     	
     }
     

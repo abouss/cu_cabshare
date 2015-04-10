@@ -71,35 +71,40 @@
 		<div class="container" style="margin-top: 10px">
 			<div class="title">Messages</div>
 			<%
-<<<<<<< HEAD
-			if(revset != null) {
-				while(revset.next()) {			
-					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
-					out.print("<p>" + "Message: " + revset.getString("m_body") + "</p>");
-					out.print("<p>" + "From: " + revset.getString("uni1") + "</p>");
-					out.print("<p>" + "==========================================" + "</p>");
-				}
-				
-				
-				} else {
-				out.print(error_msg);
-				}		
+		
 						if(revset3 != null) {
 							while(revset3.next()) {			
-								out.print("<p>" + "Date: " + revset3.getString("m_datetime") + "</p>");
+/* 								out.print("<p>" + "Date: " + revset3.getString("m_datetime") + "</p>");
 								out.print("<p>" + "Message: " + revset3.getString("m_body") + "</p>");
 								out.print("<p>" + "From: " + revset3.getString("uni1") + "</p>");
-								out.print("<p>" + "==========================================" + "</p>");
-=======
-	
-						
-						if(revset3 != null) {
-							while(revset3.next()) {			
-								out.print("<p>" + revset3.getString("m_datetime") + "</p>");
-								out.print("<p>" + revset3.getString("m_body") + "</p>");
-								out.print("<p>" + revset3.getString("uni1") + "</p>");
+								out.print("<p>" + "==========================================" + "</p>"); */
+								
+								out.print("<div class=\"reviewRow\">");
 
->>>>>>> origin/master
+								out.print("<div style=\"width: 600px; height: 30px; float:right; position:relative;\">");
+
+								out.print("<div style=\"height: 20px; position:absolute; bottom:0; right:5px;\" class=\"boldTxt\">"
+										+ revset3.getString("m_datetime") );
+								out.print("</div><div style=\"clear:both;\"></div>"+ "</div>");
+
+								out.print("<div class=\"boldTxt\" style=\"padding: 10px;\">");
+								out.print("<h4> Sent by: " + revset3.getString("uni1") + "</h4>");
+
+
+								//out.print("</div>");
+
+								//out.print("<div style=\"float:left; margin-top: 20px;\"><h3>");
+
+								/* out.print(" story:"); */
+								//out.print("</h3></div>");
+								out.print("</div>");
+
+								out.print("<div style=\"padding: 10px;\">");
+								out.print(revset3.getString("m_body"));
+								out.print("</div>");
+
+								out.print("</div>");
+
 							}
 							
 							
