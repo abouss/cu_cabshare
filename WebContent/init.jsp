@@ -1,10 +1,10 @@
 <!-- This import is necessary for JDBC -->
 <%@ page import="java.sql.*"%>
 <%@ page import="java.awt.Point"%>
+
 <!-- Database connection and query -->
 
 <%
-
 		
 	Connection conn = null; //autocommit, commit(), rollback()
 	String error_msg = "";
