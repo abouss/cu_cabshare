@@ -35,7 +35,7 @@
             <%
                String uni = String.valueOf(session.getAttribute("name"));
                if (uni.equals("null")) {
-               	out.print("<a href=\"register.jsp\">Sign Up</a>");
+               	out.print("<a href=\"register.jsp\">Sign In</a>");
                } else {
                 out.print("Cab your heart out, <a href=\'profile.jsp\'>" + uni + ".</a> <a href=\"logout.jsp\">Or just logout?</a>");
                }  
