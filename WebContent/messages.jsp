@@ -79,21 +79,20 @@
 				while(revset.next()) {			
 					out.print("<p>" + "Date: " + revset.getString("m_datetime") + "</p>");
 					out.print("<p>" + "Message: " + revset.getString("m_body") + "</p>");
-					out.print("<p>" + "From: " + revset.getString("uni2") + "</p>");
-
+					out.print("<p>" + "From: " + revset.getString("uni1") + "</p>");
+					out.print("<p>" + "==========================================" + "</p>");
 				}
 				
 				
 				} else {
 				out.print(error_msg);
-				}
-						
+				}		
 						if(revset3 != null) {
 							while(revset3.next()) {			
-								out.print("<p>" + revset3.getString("m_datetime") + "</p>");
-								out.print("<p>" + revset3.getString("m_body") + "</p>");
-								out.print("<p>" + revset3.getString("uni2") + "</p>");
-
+								out.print("<p>" + "Date: " + revset3.getString("m_datetime") + "</p>");
+								out.print("<p>" + "Message: " + revset3.getString("m_body") + "</p>");
+								out.print("<p>" + "From: " + revset3.getString("uni1") + "</p>");
+								out.print("<p>" + "==========================================" + "</p>");
 							}
 							
 							
@@ -106,9 +105,7 @@
 		%>
 
 		</div>
-
-
-
+		<hr>
 	</div>
 	<div class="container">
 	<div class="row">
