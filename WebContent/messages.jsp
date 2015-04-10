@@ -29,8 +29,6 @@
         String sql;
         ResultSet rset = null;
         ResultSet revset = null;
-        ResultSet revset2 = null;
-
         
         String uni1 = String.valueOf(session.getAttribute("uni"));
        
@@ -41,10 +39,15 @@
         	pstmt = conn.prepareStatement(sql);
             rset = pstmt.executeQuery();
         	
-            sql = "SELECT * FROM u_msgs where uni='" + uni1 + "'";
+            sql = "SELECT * FROM messages where uni1='" + uni1 + "' ORDER BY m_datetime DESC";
             pstmt = conn.prepareStatement(sql);
             revset = pstmt.executeQuery();
-       
+            
+            if (revset != null) {
+            	revset.last();
+                numResults = revset.getRow();
+                revset.beforeFirst();
+            }
             
         } catch (SQLException e) {
             error_msg = e.getMessage();
@@ -64,25 +67,14 @@
 	<div class="mainDiv">
 
 
-		<div style="margin-top: 10px">
-			Messages
+		<div class="mainDiv" style="margin-top: 10px; margin-left: 10px;">
+			<div class="title">Messages</div>
 						<%
 			if(revset != null) {
 				while(revset.next()) {			
-					
-					  	sql = "SELECT * FROM messages where m_id='" + revset.getString(2) + "'";
-			            pstmt = conn.prepareStatement(sql);
-			            ResultSet revset4 = pstmt.executeQuery();
-			            
-			            if(revset4 != null) {
-			            	while (revset4.next()) {
-			            		out.print("<p> " + revset4.getString("m_datetime") + "</p>");
-			            		out.print("<p> " + revset4.getString("m_body") + "</p>");
-			            	}
-			            } else {
-			            	out.print(error_msg);
-			            }
-	
+					out.print("<p>" + revset.getString("m_datetime") + "</p>");
+					out.print("<p>" + revset.getString("m_body") + "</p>");
+					out.print("<p>" + revset.getString("uni2") + "</p>");
 
 				}
 				

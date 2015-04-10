@@ -83,6 +83,8 @@
 </head>
 <body>
 	<div class="mainDiv">
+	
+	<div class="row">
 		Here is the information about the ride you wish to add:
 		<%
 		String uni1 = String.valueOf(session.getAttribute("uni"));
@@ -145,6 +147,7 @@
 			}
 		}
 	%>
+	</div>
 	</div>
 
 	<%@include file="footer.jsp"%>
